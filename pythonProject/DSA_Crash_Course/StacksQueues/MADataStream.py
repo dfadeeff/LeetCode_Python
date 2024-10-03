@@ -1,5 +1,6 @@
 from collections import deque
 
+
 class MADAtaStream:
 
     def __init__(self, size: int):
@@ -19,6 +20,7 @@ class MADAtaStream:
             average = sum / len(self.deque)
 
         return average
+
 
 if __name__ == '__main__':
     average_stream = MADAtaStream(3)
