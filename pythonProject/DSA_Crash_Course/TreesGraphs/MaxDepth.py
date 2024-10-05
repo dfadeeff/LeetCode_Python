@@ -24,6 +24,16 @@ class Solution:
         return ans
 
 
+    def maxDepthRecursive(self, root: Optional[TreeNode]) -> int:
+        # base case
+        if not root:
+            return 0
+
+        left = self.maxDepth(root.left)
+        right = self.maxDepth(root.right)
+        return max(left, right) + 1
+
+
 def main():
     # Create the binary tree from the example
     # Tree structure:
@@ -44,7 +54,8 @@ def main():
 
     # Calculate the max depth
     solution = Solution()
-    max_depth = solution.maxDepth(root)
+    #max_depth = solution.maxDepth(root)
+    max_depth = solution.maxDepthRecursive(root)
     print(f"The maximum depth of the tree is: {max_depth}")
 
 
