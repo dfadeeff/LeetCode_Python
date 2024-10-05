@@ -15,17 +15,6 @@ class OnlineStockSpan:
         return span
 
 
-    def nextSeparateSpanDeque(self, price: int) -> int:
-        span = 1
-        while self.deque and self.deque[-1] <= price:
-            self.deque.pop()
-            span += 1
-
-        self.deque.append(price)
-
-        return span
-
-
 if __name__ == '__main__':
     stockspan = OnlineStockSpan()
     # Test the pings as given in the example
