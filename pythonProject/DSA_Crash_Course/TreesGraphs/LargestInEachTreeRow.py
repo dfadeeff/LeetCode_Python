@@ -1,38 +1,37 @@
 from collections import deque
-from lib2to3.btm_utils import reduce_tree
 from typing import Optional, List
 
 
 class TreeNode:
-    def __init__(self, val, left=None, right=None):
+    def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+    def largestValues(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
 
-        queue = deque([root])
         ans = []
+        queue = deque([root])
 
         while queue:
             nodes_in_current_queue = len(queue)
-            ans.append(queue[-1].val)
+            max = float("-inf")
             for _ in range(nodes_in_current_queue):
+
                 node = queue.popleft()
-                #ans.append(node.val)
+                if max < node.val:
+                    max = node.val
 
                 if node.left:
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
-
+            ans.append(max)
         return ans
-
-
 
 
 def main():
@@ -47,13 +46,16 @@ def main():
     #
     #
 
-    node5 = TreeNode(5)
-    node4 = TreeNode(4)
-    node3 = TreeNode(3, right=node4)
-    node2 = TreeNode(2, right=node4)
-    root = TreeNode(1, left=node2, right=node3)
+    node5Leaf = TreeNode(5)
+    node3Leaf = TreeNode(3)
+    node9Leaf = TreeNode(9)
+
+    node3 = TreeNode(3, left=node5Leaf, right=node3Leaf)
+    node2 = TreeNode(2, right=node9Leaf)
+    root = TreeNode(1, left=node3, right=node2)
     solution = Solution()
-    print(solution.rightSideView(root))
+    print(solution.largestValues(root))
+
 
 if __name__ == '__main__':
     main()
