@@ -44,11 +44,13 @@ class Solution:
         seen = set()
         ans = 0
 
+        # Traverse each city to find provinces
         for i in range(n):
+            # If the city hasn't been visited, it's a new province, ie new component
             if i not in seen:
                 ans += 1
                 seen.add(i)
-                dfs(i)
+                dfs(i)  # Perform DFS to mark all cities in the same province as visited
 
         return ans
 
