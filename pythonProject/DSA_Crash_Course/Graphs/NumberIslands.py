@@ -13,10 +13,14 @@ class Solution:
                 if valid(next_row, next_col) and (next_row, next_col) not in seen:
                     seen.add((next_row, next_col))
                     dfs(next_row, next_col)
+                    print("seen", seen)
 
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
         seen = set()
         ans = 0
+        for i in range(len(grid)):
+            print("Grid row: ", grid[i])
+
         m = len(grid)
         n = len(grid[0])
         for row in range(m):
@@ -44,6 +48,7 @@ def main():
         ["0", "0", "0", "1", "1"]
     ]
     print(Solution().numIslands(grid))
+
 
 if __name__ == "__main__":
     main()
