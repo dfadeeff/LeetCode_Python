@@ -17,7 +17,7 @@ class Solution:
             if diff[i] >= requirement[i]:
                 ans += 1
 
-        #print(diff)
+        # print(diff)
 
         return ans
 
