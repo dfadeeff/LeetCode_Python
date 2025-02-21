@@ -20,8 +20,10 @@ class Solution:
         while stack:
             node, depth = stack.pop()
             ans = max(ans, depth)
+            # if node is not empty, ie left child not empty
             if node.left:
                 stack.append((node.left, depth + 1))
+            # if node is not empty, ie right child not empty
             if node.right:
                 stack.append((node.right, depth + 1))
         return ans
