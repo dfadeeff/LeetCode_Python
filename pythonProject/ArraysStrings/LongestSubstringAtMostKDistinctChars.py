@@ -9,7 +9,7 @@ class Solution:
 
         for right in range(len(s)):  # Expand window
             char_count[s[right]] += 1
-
+            print("dictionary: ", char_count)
             while len(char_count) > k:  # More than k distinct characters, shrink window
                 char_count[s[left]] -= 1
 
