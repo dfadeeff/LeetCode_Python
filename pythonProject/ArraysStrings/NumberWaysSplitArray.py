@@ -9,9 +9,8 @@ class Solution:
         for i in range(1, n):
             prefix.append(prefix[i - 1] + nums[i])
 
-
         ans = 0
-        for i in range(n-1):
+        for i in range(n - 1):
             left_section = prefix[i]
             right_section = prefix[-1] - prefix[i]
             if left_section >= right_section:
