@@ -6,6 +6,7 @@ class Solution:
         hashmapIndex = defaultdict(int)
         for i, number in enumerate(keyboard):
             hashmapIndex[number] += i
+        print(hashmapIndex)
 
         sum_time = hashmapIndex[word[0]]
         for i in range(1,len(word)):
