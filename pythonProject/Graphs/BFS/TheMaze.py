@@ -5,10 +5,6 @@ from typing import List
 class Solution:
     def hasPath(self, maze: List[List[int]], start: List[int], destination: List[int]) -> bool:
 
-
-        def valid(row, col):
-            return 0 <= row < m and 0 <= col < n and maze[row][col] == 0
-
         m, n = len(maze), len(maze[0])
         seen = {(start[0], start[1])}
         queue = deque([(start[0], start[1])])  # row, col, steps
@@ -18,16 +14,14 @@ class Solution:
             row, col = queue.popleft()
             if [row, col] == destination:
                 return True
-            for dx, dy in directions:
-                x, y = row, col
-                # Roll the ball in the current direction until it hits a wall
-                while 0 <= x + dy < m and 0 <= y + dx < n and maze[x + dy][y + dx] == 0:
-                    x += dy
-                    y += dx
-
-                if (x, y) not in seen:
-                    seen.add((x, y))
-                    queue.append((x, y))
+            for dr, dc in directions:
+                r, c = row, col  # start from current position
+                while 0 <= r + dr < m and 0 <= c + dc < n and maze[r + dr][c + dc] == 0:
+                    r += dr
+                    c += dc
+                if (r, c) not in seen:
+                    seen.add((r, c))
+                    queue.append((r, c))
 
         return False
 
