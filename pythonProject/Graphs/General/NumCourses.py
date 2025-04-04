@@ -6,7 +6,6 @@ from black.trans import defaultdict
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         # Step 1: Build the graph
-
         graph = defaultdict(list)
         for edge_from, edge_to in prerequisites:
             graph[edge_from].append(edge_to)
