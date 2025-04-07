@@ -44,6 +44,14 @@ class Solution:
         •	✅ Copies them into buf4
         •	✅ Advances file pointer
         •	✅ Returns how many chars were actually read
+
+        Explain how your solution supports multiple calls.
+        Since read4 reads in chunks of 4 and may read more than needed, I store extra characters in an internal buffer across multiple calls.
+
+        I use a pointer to track the position in this buffer, and refill it with read4 only when exhausted.
+        This ensures I don’t lose any data between multiple read() calls.
+
+
 	    """
         copied_chars = 0  # how many chars copied to output buffer
 
