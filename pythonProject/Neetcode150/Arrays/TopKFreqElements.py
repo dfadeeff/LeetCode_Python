@@ -6,12 +6,13 @@ from typing import List
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         counts = Counter(nums)
-
+        print(counts)
         heap = []
 
         # Python has by default min heap, make freq first, since comparison from left to right
         for key, val in counts.items():
-            # push tuple (val, key) onto the heap
+            print("key, val: ", key, val)
+            # push tuple (val, key) onto the heap, this is the most important part, first argument is val followed by key!
             heapq.heappush(heap, (val, key))
             if len(heap) > k:
                 heapq.heappop(heap)
