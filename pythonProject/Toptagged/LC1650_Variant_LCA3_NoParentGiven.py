@@ -16,6 +16,13 @@ class Solution:
             if node.right:
                 child_to_parent[node.right] = node
 
+
+        print("Parent -> [Left, Right]")
+        for node in nodes_list:
+            left_val = node.left.val if node.left else None
+            right_val = node.right.val if node.right else None
+            print(f"{node.val} -> [{left_val}, {right_val}]")
+
         # Step 2: Simulate parent pointers and use two-pointer trick
         a, b = p, q
         while a != b:
