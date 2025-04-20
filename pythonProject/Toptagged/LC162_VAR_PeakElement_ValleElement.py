@@ -7,12 +7,13 @@ class Solution:
 
         while l <= r:
             mid = (l + r) // 2
+            # THINK OF SMALLER NEIGHBORS!!!
 
-            # 1) If we're on a downhill toward the left, move right
+            # 1) you are on the uphill, so move left, think of smaller element from left
             if mid >0 and nums[mid] > nums[mid - 1]:
                 r = mid - 1
 
-            # 2) Else if we're on an uphill toward the right, move right
+            # 2) there is a smaller element or neighbor from right, move right
             elif mid < len(nums)-1 and nums[mid] > nums[mid + 1]:
                 l = mid + 1
 

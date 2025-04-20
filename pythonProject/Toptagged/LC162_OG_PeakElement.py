@@ -8,6 +8,7 @@ class Solution:
         while l <= r:
             mid = (l + r) // 2
 
+            # THINK OF LARGER NEIGHBORS FROM BOTH SIDES
             # 1) If we're on a downhill toward the left, move left
             if mid > 0 and nums[mid] < nums[mid - 1]:
                 r = mid - 1
