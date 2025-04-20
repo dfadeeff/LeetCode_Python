@@ -9,12 +9,12 @@ class Solution:
             mid = (l + r) // 2
 
             # 1) If we're on a downhill toward the left, move right
-            if mid < r and nums[mid] > nums[mid + 1]:
-                l = mid + 1
+            if mid >0 and nums[mid] > nums[mid - 1]:
+                r = mid - 1
 
             # 2) Else if we're on an uphill toward the right, move right
-            elif mid > l and nums[mid] > nums[mid - 1]:
-                r = mid - 1
+            elif mid < len(nums)-1 and nums[mid] > nums[mid + 1]:
+                l = mid + 1
 
             # 3) Otherwise, neither neighbor is higher → we found a peak!
             else:
