@@ -18,10 +18,15 @@ class Solution:
         # walk both lists in sorted‐order of start
         while i < len(A) or j < len(B):
             # pick next interval from whichever list has the smaller start
+            # check all options when we should take from B
+            # either exhausted B
+            # or i < len(A) and start at A is before start at B
             if j == len(B) or (i < len(A) and A[i][0] <= B[j][0]):
+                # take from A
                 _add(A[i])
                 i += 1
             else:
+                # take from B
                 _add(B[j])
                 j += 1
         return res
