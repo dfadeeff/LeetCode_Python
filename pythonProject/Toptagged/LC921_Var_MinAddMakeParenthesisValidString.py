@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def minimumAddToMakeValid(self, s: str) -> str:
-        res: List[str] = []
+        res = []
         balance = 0  # number of unmatched '(' we’ve seen so far
 
         for c in s:
