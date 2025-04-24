@@ -8,6 +8,7 @@ class Solution:
         email_to_name = {}
         # Step 1: Build graph and map email to name
         for account in accounts:
+            print("account: ", account)
             name = account[0]
             first_email = account[1]
             for email in account[1:]:
