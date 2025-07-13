@@ -15,14 +15,8 @@ class Solution:
 
     def rotateConstant(self, nums: List[int], k: int) -> None:
         k = k % len(nums)
-        l, r = 0, len(nums) - 1
-        while l < r:
-            nums[l], nums[r] = nums[r], nums[l]
-            l += 1
-            r -= 1
-
+        self.revertPeriod(nums, 0, len(nums)-1)
         self.revertPeriod(nums, 0, k - 1)
-
         self.revertPeriod(nums, k, len(nums) - 1)
 
         print(nums)
