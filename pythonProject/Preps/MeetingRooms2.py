@@ -1,6 +1,7 @@
 from typing import List
 import heapq
 
+
 # Definition of Interval:
 class Interval(object):
     def __init__(self, start, end):
@@ -15,7 +16,7 @@ class Solution:
 
         min_heap = []
         for meeting in intervals:
-            if min_heap and meeting.start >= min_heap[0]: #the earliest ending meeting
+            if min_heap and meeting.start >= min_heap[0]:  # the earliest ending meeting
                 heapq.heappop(min_heap)
 
             heapq.heappush(min_heap, meeting.end)
