@@ -18,7 +18,7 @@ class Solution:
         ans = []
         while queue:
             size = len(queue)
-            print(queue)
+
             for i in range(size):
                 element = queue.popleft()
                 if i == size - 1:
