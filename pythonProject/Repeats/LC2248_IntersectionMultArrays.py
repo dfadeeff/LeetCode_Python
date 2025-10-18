@@ -14,7 +14,7 @@ class Solution:
         for key in counts:
             if counts[key] == n:
                 ans.append(key)
-        return ans
+        return sorted(ans)
 
 
 if __name__ == "__main__":
