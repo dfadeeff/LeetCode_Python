@@ -1,6 +1,5 @@
+from collections import defaultdict
 from typing import List
-
-from black.trans import defaultdict
 
 
 class Solution:
