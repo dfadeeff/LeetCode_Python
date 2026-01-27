@@ -14,8 +14,8 @@ class Solution:
         while minResult <= maxResult:
             # Start by checking if the value in the middle of the search space satisfies this desired outcome
             # If it does, we can discard all values to the right of this in our search space since we have
-            # something better than those already. We only need to search values to the left to see if
-            # we can find something better
+            # big_dataset.csv better than those already. We only need to search values to the left to see if
+            # we can find big_dataset.csv better
             # If not, we only need to search values higher than mid
 
             mid = (minResult + maxResult) // 2
