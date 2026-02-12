@@ -65,9 +65,9 @@ class LinearRegressionClosedForm:
 #   5. Update: move b0, b1 opposite to gradient (downhill)
 #   6. Repeat until error stops decreasing
 #
-# Gradient formulas (from taking derivative of MSE):
-#   dL/db1 = (2/n) * Σ (ŷ_i - y_i) * x_i    = (2/n) * X · error
-#   dL/db0 = (2/n) * Σ (ŷ_i - y_i)           = (2/n) * sum(error)
+# Gradient formulas (from taking derivative of MSE with 1/2n):
+#   dL/db1 = (1/n) * Σ (ŷ_i - y_i) * x_i    = (1/n) * X · error
+#   dL/db0 = (1/n) * Σ (ŷ_i - y_i)           = (1/n) * sum(error)
 #
 # Update rule:
 #   b1 = b1 - lr * dL/db1   (lr = learning rate = step size)
@@ -97,8 +97,8 @@ class LinearRegressionGD:
             # STEP 1: predict with current weights
             y_pred = self.w * X + self.b
 
-            # STEP 2: measure how wrong we are (MSE)
-            loss = np.mean((y_pred - y) ** 2)
+            # STEP 2: measure how wrong we are (MSE with 1/2 factor)
+            loss = 0.5 * np.mean((y_pred - y) ** 2)
             self.losses.append(loss)
 
             # STEP 3: convergence — if loss barely changed, stop
@@ -109,8 +109,8 @@ class LinearRegressionGD:
 
             # STEP 4: compute gradients (which direction to move)
             error = y_pred - y                       # how far off each prediction is
-            dw = (2 / n) * np.dot(X, error)          # gradient for weight
-            db = (2 / n) * np.sum(error)             # gradient for bias
+            dw = (1 / n) * np.dot(X, error)          # gradient for weight
+            db = (1 / n) * np.sum(error)             # gradient for bias
 
             # STEP 5: update — take a small step opposite to gradient
             self.w -= self.lr * dw
