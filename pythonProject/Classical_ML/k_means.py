@@ -2,7 +2,7 @@ import numpy as np
 
 np.random.seed(42)
 
-cluster_1 = np.random.randn(20, 2) * 0.5 + np.array([0, 0])
+cluster_1 = np.random.randn(20, 2) * 0.5 + np.array([1, 0])
 cluster_2 = np.random.randn(20, 2) * 0.5 + np.array([4, 4])
 cluster_3 = np.random.randn(20, 2) * 0.5 + np.array([0, 4])
 
