@@ -80,9 +80,13 @@ if __name__ == "__main__":
     print("=" * 60)
     means, variances = clf.get_descriptives(X_train, y_train)
 
-    print("means:", means)
-    print("vars:", variances)
+    X_c0 = X_train[y_train == 0]
+    X_c1 = X_train[y_train == 1]
+    print(X_c0)
+    print(X_c1)
 
+    print(np.sum(X_c0,axis=0))
+    print(np.sum(X_c1, axis=0))
 #     labels = {0: "healthy", 1: "sick"}
 #     for i, c in enumerate(clf.classes):
 #         pts = X_train[y_train == c]
