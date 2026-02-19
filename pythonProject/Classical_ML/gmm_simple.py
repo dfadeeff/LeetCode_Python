@@ -19,8 +19,8 @@ import numpy as np
 np.random.seed(42)
 
 # ── 10 points, 2 obvious groups ──
-X = np.array([1.0, 1.5, 2.0, 1.8, 1.2,    # group near 1.5
-              8.0, 8.5, 9.0, 8.8, 8.2])     # group near 8.5
+X = np.array([1.0, 1.5, 2.0, 1.8, 1.2,  # group near 1.5
+              8.0, 8.5, 9.0, 8.8, 8.2])  # group near 8.5
 
 K = 2  # two clusters
 
@@ -32,9 +32,9 @@ print(f"Eyeball answer: cluster A ≈ [1.0–2.0], cluster B ≈ [8.0–9.0]\n")
 
 # ── Initialize parameters ──
 # Each cluster k has: mean μ_k, variance σ²_k, weight π_k
-means = np.array([2.0, 7.0])      # initial guesses (don't need to be perfect)
-variances = np.array([1.0, 1.0])   # start with variance = 1
-weights = np.array([0.5, 0.5])     # start 50/50
+means = np.array([2.0, 7.0])  # initial guesses (don't need to be perfect)
+variances = np.array([1.0, 1.0])  # start with variance = 1
+weights = np.array([0.5, 0.5])  # start 50/50
 
 print("Initial parameters:")
 for k in range(K):
