@@ -42,7 +42,6 @@ class Solution:
                 dfs(i)
                 count += 1
 
-
         return count
 
 
