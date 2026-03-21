@@ -10,8 +10,15 @@ class Solution:
         for u, v, c in flights:
             graph[u].append((v, c))
 
-        # (cost, node, stops_remaining)
-        pq = [(0, src, k)]
+        # flights = [[0,1,100],[1,2,100],[0,2,500],[2,3,100]]
+        # src = 0, dst = 3, k = 1
+        # graph = {
+        #   0: [(1,100), (2,500)],
+        #   1: [(2,100)],
+        #   2: [(3,100)]
+        # }
+
+        pq = [(0, src, k)]  # (cost, node, stops_remaining)
         visited = {}  # node → best stops_remaining seen
 
         while pq:
