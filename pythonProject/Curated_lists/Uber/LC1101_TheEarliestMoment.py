@@ -4,6 +4,7 @@ from typing import List
 class Solution:
     def earliestAcq(self, logs: List[List[int]], n: int) -> int:
         logs.sort()
+        print("sorted logs: ", logs)
         parent = list(range(n))
         rank = [0] * n
         count = n  # n separate people
@@ -15,10 +16,34 @@ class Solution:
             return parent[x]
 
         def union(a, b):
+            """
+            We always want:
+            ra = the TALLER tree (higher rank)
+            rb = the SHORTER tree (lower rank)
+
+            Then:
+            parent[rb] = ra   ← attach shorter under taller
+
+            Case 1: rank[ra] > rank[rb]
+            ra is already taller → no swap needed
+            attach rb under ra
+
+            Case 2: rank[ra] < rank[rb]
+            rb is taller → SWAP so ra becomes taller
+            then attach rb under ra
+
+            Case 3: rank[ra] == rank[rb]
+            equal height → no swap needed attach rb under ra anyway
+            but now tree grows → rank[ra] += 1
+
+            Importantly: Yes — ra/rb start from input order (a,b)
+            But rank overrides: we always make ra = taller
+            """
             nonlocal count
             ra, rb = find(a), find(b)
             if ra == rb:
                 return
+
             if rank[ra] < rank[rb]:
                 ra, rb = rb, ra
             parent[rb] = ra

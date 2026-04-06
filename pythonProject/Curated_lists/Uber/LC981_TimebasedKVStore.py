@@ -6,9 +6,13 @@ class TimeMap:
     def __init__(self):
         # key → list of (timestamp, value) pairs
         # pairs are automatically sorted because timestamps are strictly increasing
+        # # key → [(ts1,val1), (ts2,val2), ...]
+
         self.store = defaultdict(list)
 
     def set(self, key: str, value: str, timestamp: int) -> None:
+        # timestamps always increasing (problem guarantee)
+        # so list stays sorted automatically — no need to sort!
         self.store[key].append((timestamp, value))
 
     def get(self, key: str, timestamp: int) -> str:
@@ -25,7 +29,7 @@ class TimeMap:
                 right = mid - 1
         if result == -1:
             return ""
-        return values[result][1]  # [1] get value
+        return values[result][1]  # [1] get value, # return value at best index
 
 
 if __name__ == "__main__":
