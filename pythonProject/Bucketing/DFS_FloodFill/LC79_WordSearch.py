@@ -14,6 +14,8 @@ class Solution:
             if board[r][c] != word[i] or (r, c) in seen:
                 return False
             seen.add((r, c))  # mark
+
+            # try all 4 dirs with i+1
             found = (dfs(r + 1, c, i + 1)) or (dfs(r - 1, c, i + 1)) or (dfs(r, c + 1, i + 1)) or (dfs(r, c - 1, i + 1))
             seen.remove((r, c))  # unmark
 
